@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres_db:
+    image: postgres
+    ports:
+    - "5432:5432"
+    volumes:
+    - ./data:/data/
+    restart: always
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student
+      POSTGRES_DB: studentdb
+
+volumes:
+  data: {}
