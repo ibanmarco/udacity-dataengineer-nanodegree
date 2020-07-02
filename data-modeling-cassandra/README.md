@@ -50,10 +50,4 @@ docker-compose down
 
 Once the Cassandra server is up and reachable, follow these steps to run this project:
 
-* Run the `main.ipynb` notebook or alternatively, run `create_tables.py` manually. This process will create the fact and dimension tables for the star schema.
-
-* Run the `etl.ipynb` notebook. This notebook has two parts:
-  * The first part will read and process a single file from each dataset and will load the data into the tables previously created.
-  * The second part, just at the end of the notebook, will read and process all files from both datasets and will load them into the tables. Alternatively, you can run `etl.py` manually.
-
-* Verify the content of the tables using `test.ipynb`.
+* Run the `main.ipynb`.
