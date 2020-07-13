@@ -29,7 +29,7 @@ configparser
 
 ### AWS deployment:
 
-A terraform module was created to deploy a RDS PostgreSQL instance and a RedShift cluster in private subnets. A bastion EC2 instance was created in order to access them and SSH tunneling was used to run python scripts and Jupyter notebook. You can find the module [here.](https://github.com/ibanmarco/tf-datamodeling-redshift)
+A terraform module was created to deploy a RDS PostgreSQL instance and a RedShift cluster in private subnets. A bastion EC2 instance was created in order to access them and SSH tunneling was used to run python scripts and Jupyter notebook. You can find the module [here.](https://github.com/ibanmarco/tf-data-lake-aws
 
 Review the `terraform.tfvars` file and fill the variables with the proper value before running terraform:
 
@@ -64,17 +64,17 @@ Once the PostgreSQL server is up and reachable, follow these steps to run this p
 
 You don't need to destroy all the terraform resources to reduce cost, only follow the following steps:
 
-* Verify everything is fine running the plan:
+* Stop the RDS instance:
 ```
 aws rds stop-db-instance --db-instance-identifier <YOUR_INSTANCE_ID> --region us-west-2
 ```
 
-* Verify everything is fine running the plan:
+* Stop the EC2 instance:
 ```
 aws ec2 stop-instances --instance-ids <YOUR_INSTANCE_ID> --region us-west-2
 ```
 
-* Verify everything is fine running the plan:
+* Destroy the RedShift cluster:
 ```
 terraform destroy --target=aws_redshift_cluster.redshift
 ```
@@ -82,17 +82,17 @@ terraform destroy --target=aws_redshift_cluster.redshift
 
 To restart again:
 
-* Verify everything is fine running the plan:
+* Start the RDS instance:
 ```
 aws rds start-db-instance --db-instance-identifier  <YOUR_INSTANCE_ID> --region us-west-2
 ```
 
-* Verify everything is fine running the plan:
+* Start the EC2 instance:
 ```
 aws ec2 start-instances --instance-ids  <YOUR_INSTANCE_ID>--region us-west-2
 ```
 
-* Verify everything is fine running the plan:
+* Create the RedShift cluster:
 ```
 terraform apply --target=aws_redshift_cluster.redshift
 ```

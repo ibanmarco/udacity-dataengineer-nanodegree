@@ -20,4 +20,13 @@ This is the repository where all the projects related to [Data Engineer Nanodegr
 * Creating a optimized star schema optimized for queries
 
 #### Bonus
-A terraform module was created to deploy a RDS PostgreSQL instance and a RedShift cluster in private subnets and both of them can be reachable from your laptop without being exposed to internet. You can find the module [here.](https://github.com/ibanmarco/tf-datamodeling-redshift)
+A terraform module was created to deploy a RDS PostgreSQL instance and a RedShift cluster in private subnets and both of them can be reachable from your laptop without being exposed to internet. You can find the module [here.](https://github.com/ibanmarco/tf-data-lake-aws)
+
+
+## [Data Lake with AWS ElasticMapReduce (EMR) - Spark](./data-lake-aws)
+* Deploying the AWS infra for ETL by using IaC.
+* In the event of uploading the ETL pipeline to the S3 bucket a lambda is invoked in order to create a transient EMR cluster where the ETL pipeline is executed.
+* Data is processed on Spark and outputs saved in S3 bucket.
+
+#### Bonus
+The previous terraform module was refactored in modules in order to deploy the required AWS resources. You can find the module [here.](https://github.com/ibanmarco/tf-data-lake-aws)
