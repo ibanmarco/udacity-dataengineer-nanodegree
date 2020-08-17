@@ -30,3 +30,8 @@ A terraform module was created to deploy a RDS PostgreSQL instance and a RedShif
 
 #### Bonus
 The previous terraform module was refactored in modules in order to deploy the required AWS resources. You can find the module [here.](https://github.com/ibanmarco/tf-data-lake-aws)
+
+
+## [Data Pipelines with Apache Airflow](./airflow-data-pipeline)
+* Creating data pipeline to automate ETL by using Apache Airflow
+* Custom operators and a helpers class that contains all the SQL transformations will be executed to get JSON files from S3 and keep data in RedShift.
